@@ -15,31 +15,24 @@ library(magrittr)
 library(patchwork)
 library(visdat)
 
-#url = 'https://covid19.who.int/who-data/vaccination-data.csv'
 
-#data <-read_csv(url)
+data <- read_csv("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv")
 
-#data<-data.frame(data)
+data<-data.frame(data)
 
-#data<-data[complete.cases(data), ]
+data2<-data[complete.cases(data), ]
 
-#vis_miss(data)
+names(data)
 
-#names(data)
-
-#data<-data %>% select(COUNTRY,ISO3,DATE_UPDATED,TOTAL_VACCINATIONS,PERSONS_FULLY_VACCINATED,VACCINES_USED,FIRST_VACCINE_DATE,NUMBER_VACCINES_TYPES_USED)%>%
-  arrange(desc(COUNTRY))
+df<-data %>% select(location,iso_code,continent,date,total_cases,total_deaths,total_tests,positive_rate,total_vaccinations,people_vaccinated,people_fully_vaccinated,stringency_index,population) %>%
+  arrange(desc(stringency_index))
 
 
-#write.csv(data,"covid.csv",row.names=FALSE)
+write.csv(df,"covid.csv",row.names=FALSE)
 
-data2 <- read_csv("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv")
-
-data2<-data.frame(data2)
-
-data2<-data[complete.cases(data2), ]
+skimr::skim(df)
 
 
-names(data2)
+GGally(df)
 
-write.csv(data,"covid.csv",row.names=FALSE)
+ggsave("covariance_matrix.png", width = 7, height = 7)
