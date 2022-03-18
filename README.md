@@ -1,5 +1,6 @@
 # Coronavirus vaccination data
 Coronavirus details
+:trollface:
 
 Some [data](https://raw.githubusercontent.com/NicJC/Coronavirus/main/covid.csv) for vaccinations by region.
 
