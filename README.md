@@ -6,4 +6,4 @@ Some [data](https://raw.githubusercontent.com/NicJC/Coronavirus/main/covid.csv) 
 
 ## GGPlot Jitterplot of Dates by positive rate (Globally):trollface:
 
-![](https://github.com/NicJC/Coronavirus/blob/main/Scatter_plot.png)
+![](https://github.com/NicJC/Coronavirus/blob/main/Vaccination_facet.png)
